@@ -15,56 +15,67 @@ const questions = [
     type: "input",
     name: "managerID",
     message: "What is your ID number?",
+    category: "manager",
   },
   {
     type: "input",
     name: "managerName",
     message: "What is your name?",
+    category: "manager",
   },
   {
     type: "input",
     name: "managerEmail",
     message: "What is your email address?",
+    category: "manager",
   },
   {
     type: "input",
     name: "officeNumber",
     message: "What is your office number?",
+    category: "manager",
   },
   {
     type: "input",
     name: "numEngineers",
     message: "How many engineers do you have on your team?",
+    category: "manager",
   },
   {
     type: "input",
     name: "numInterns",
     message: "How many interns do you have on your team?",
+    category: "manager",
   },
   {
     type: "input",
     name: "id",
     message: "What is the employee's ID number?",
+    category: "employee",
   },
   {
     type: "input",
     name: "name",
     message: "What is the employee's name?",
+    category: "employee",
   },
   {
     type: "input",
     name: "email",
     message: "What is the employee's email address?",
+    category: "employee",
   },
   {
     type: "input",
     name: "github",
     message: "What is the employee's GitHub username?",
+    category: "engineer",
   },
   {
     type: "input",
     name: "school",
     message: "What is the employee's school?",
+    category: "intern",
   },
 ];
 const employees = [];
@@ -72,7 +83,10 @@ function init() {
   managerPrompt();
   async function managerPrompt() {
     try {
-      const managerQs = questions.slice(0, 6);
+      const managerQs = questions.filter((question) => {
+        return question.category === "manager";
+      });
+      console.log(managerQs);
       const answers = await inquirer.prompt(managerQs);
       const managerID = parseInt(answers.managerID);
       const officeNumber = parseInt(answers.officeNumber);
@@ -112,7 +126,11 @@ function init() {
   }
   async function engineersPrompt(numEngineers) {
     try {
-      const engineerQs = questions.slice(6, 10);
+      const engineerQs = questions.filter((question) => {
+        return (
+          question.category === "employee" || question.category === "engineer"
+        );
+      });
       for (let i = 0; i < numEngineers; i++) {
         const answers = await inquirer.prompt(engineerQs);
         const id = parseInt(answers.id);
@@ -142,8 +160,11 @@ function init() {
   }
   async function internsPrompt(numInterns) {
     try {
-      const internQs = questions.slice(6);
-      internQs.splice(3, 1);
+      const internQs = questions.filter((question) => {
+        return (
+          question.category === "employee" || question.category === "intern"
+        );
+      });
       for (let i = 0; i < numInterns; i++) {
         const answers = await inquirer.prompt(internQs);
         const id = parseInt(answers.id);
