@@ -1,0 +1,39 @@
+body {
+  /* font-family: 'Lucida Console', Monaco, monospace; */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a:link {
+  color: #13547a;
+}
+
+.team-heading {
+  background-image: linear-gradient(to right, #13547a, #80d0c7);
+}
+
+h1 {
+  color: white;
+  font-size: 5rem;
+}
+
+.card {
+  transition: transform 150ms;
+}
+.card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.manager-head {
+  background-color: #13547a;
+  color: #e5f1fa;
+}
+
+.eng-head {
+  background-color: #286c89;
+  color: #e5f1fa;
+}
+
+.intern-head {
+  background-color: #4a93a1;
+  color: #e5f1fa;
+}
