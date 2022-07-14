@@ -19,7 +19,7 @@ manager information and creates a web app from templates.
 
 ## Installation
 
-Clone my repository to run CLI yourself! Make sure you have node and all the
+Clone my repository to run the CLI yourself! Make sure you have node and all the
 app's dependencies installed.
 
 ## Usage
